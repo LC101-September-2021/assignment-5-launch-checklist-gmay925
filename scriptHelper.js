@@ -43,23 +43,33 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let launchStatus = document.getElementById('launchStatus');
 
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-     alert("All fields are required!");       
+     alert("All fields are required!"); 
+     launchStatus.innerHTML = '<h2>Shuttle not ready for launch</h2>'
+     launchStatus.style.color = 'red';      
      event.preventDefault();
      faultyItems.style.visibility = 'hidden';
     }else if(validateInput(pilot) === "Is a Number"){
      alert("Please enter text for pilot's name!")
+     launchStatus.innerHTML = '<h2>Shuttle not ready for launch</h2>'
+     launchStatus.style.color = 'red';
      event.preventDefault();
      faultyItems.style.visibility = 'hidden';
     }else if((validateInput(copilot)) === "Is a Number"){
      alert("Must enter text for copilot's name!")
+     launchStatus.innerHTML = '<h2>Shuttle not ready for launch</h2>'
+     launchStatus.style.color = 'red';
      event.preventDefault();
      faultyItems.style.visibility = 'hidden';
     }else if(validateInput(fuelLevel) === "Not a Number"){
      alert("Must enter a number for the fuel level!")
+     launchStatus.innerHTML = '<h2>Shuttle not ready for launch</h2>'
+     launchStatus.style.color = 'red';
      event.preventDefault();
      faultyItems.style.visibility = 'hidden';
     }else if(validateInput(cargoLevel) === "Not a Number"){
      alert("Must enter a number for the cargo mass!")
+     launchStatus.innerHTML = '<h2>Shuttle not ready for launch</h2>'
+     launchStatus.style.color = 'red';
      event.preventDefault();
      faultyItems.style.visibility = 'hidden';
     }else{
@@ -77,7 +87,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         }else if(fuelLevel >= 10000 && cargoLevel <= 10000){
             launchStatus.innerHTML = '<h2>Shuttle is ready for launch!</h2>'
             launchStatus.style.color = 'green';
-         }
+        }
     }
 
 }
